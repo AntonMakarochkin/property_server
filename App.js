@@ -24,7 +24,7 @@ const smtpTransport = mailer.createTransport(
 	},
 	{ from: 'registrationtestmail01 <registrationtestmail01@mail.ru>' },
 );
-
+const defaultPORT = 3306;
 const sendEmail = (message) => {
 	smtpTransport.sendMail(message, (error, info) => {
 		if (error) {
@@ -106,6 +106,6 @@ app.get('/check_user_reset/:id', function (req, res) {
 	// 	});
 	// });
 
-app.listen(3000, function () {
-	console.log('started');
+app.listen(defaultPORT, function () {
+	console.log(`started on port ${defaultPORT}`);
 });
