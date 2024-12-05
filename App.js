@@ -24,7 +24,7 @@ const smtpTransport = mailer.createTransport(
 	},
 	{ from: 'registrationtestmail01 <registrationtestmail01@mail.ru>' },
 );
-const defaultPORT = 3306;
+
 const sendEmail = (message) => {
 	smtpTransport.sendMail(message, (error, info) => {
 		if (error) {
@@ -43,7 +43,7 @@ const pool = mysql2.createPool({
 	host: process.env.DATABASE_HOST,
 	user: process.env.DATABASE_USER,
 	database: process.env.DATABASE,
-	password: '',
+	password: process.env.DATABASE_PASSWORD,
 });
 app.use(multer().any());
 app.use(cors());
@@ -106,6 +106,6 @@ app.get('/check_user_reset/:id', function (req, res) {
 	// 	});
 	// });
 
-app.listen(defaultPORT, function () {
-	console.log(`started on port ${defaultPORT}`);
+app.listen(3000, function () {
+	console.log('started');
 });
