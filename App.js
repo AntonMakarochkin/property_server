@@ -38,6 +38,10 @@ const sendEmail = (message) => {
 
 dotenv.config({ path: './.env' });
 // const cert = Certificate();
+const corsOptions = {
+	origin: 'https://makarochkin.ru',//(https://your-client-app.com)
+	optionsSuccessStatus: 200,
+};
 const app = express();
 const pool = mysql2.createPool({
 	host: process.env.DATABASE_HOST,
@@ -46,7 +50,7 @@ const pool = mysql2.createPool({
 	password: process.env.DATABASE_PASSWORD,
 });
 app.use(multer().any());
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json()); //для того что бы использовать req.body
 app.use(function (req, res, next) {
 	res.setHeader('Access-Control-Allow-Origin', '*');
