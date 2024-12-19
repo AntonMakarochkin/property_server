@@ -39,7 +39,7 @@ const sendEmail = (message) => {
 dotenv.config({ path: './.env' });
 // const cert = Certificate();
 const corsOptions = {
-	origin: 'https://makarochkin.ru',//(https://your-client-app.com)
+	origin: 'http://91.197.98.253',//(https://your-client-app.com)
 	optionsSuccessStatus: 200,
 };
 const app = express();
