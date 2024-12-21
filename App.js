@@ -39,7 +39,7 @@ const sendEmail = (message) => {
 dotenv.config({ path: './.env' });
 // const cert = Certificate();
 const corsOptions = {
-	origin: 'http://91.197.98.253',//(https://your-client-app.com)
+	origin: 'http://91.197.98.253/',//(https://your-client-app.com)
 	optionsSuccessStatus: 200,
 };
 const app = express();
@@ -53,7 +53,7 @@ app.use(multer().any());
 app.use(cors(corsOptions));
 app.use(express.json()); //для того что бы использовать req.body
 app.use(function (req, res, next) {
-	res.setHeader('Access-Control-Allow-Origin', 'http://91.197.98.253');
+	res.setHeader('Access-Control-Allow-Origin', 'http://91.197.98.253/');
 	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
 	res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization');
 	res.setHeader('Access-Control-Allow-Credentials', true);
